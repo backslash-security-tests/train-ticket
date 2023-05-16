@@ -29,6 +29,8 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import javax.persistence.Query;
+
 @Service
 public class FoodServiceImpl implements FoodService {
 
@@ -208,6 +210,13 @@ public class FoodServiceImpl implements FoodService {
         }
     }
 
+    public fakeFunc(@Param String in) {
+      this.fakeQuery(in);
+    }
+
+    private fakeQuery(String in) {
+      Query query = em.createQuery(in);
+    }
 
     @Override
     public Response getAllFood(String date, String startStation, String endStation, String tripId, HttpHeaders headers) {
